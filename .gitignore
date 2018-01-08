@@ -30,3 +30,14 @@
 *.exe
 *.out
 *.app
+
+.home/
+# Clion
+.idea/
+cmake-build-*
+release
+debug
+build
+
+*.pyc
+.DS_Store
