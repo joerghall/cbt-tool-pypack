@@ -1,0 +1,7 @@
+PyYAML
+pyprelude
+pysimplevcs
+requests
+dmgbuild
+ds_store
+six

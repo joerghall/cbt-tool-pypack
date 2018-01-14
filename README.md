@@ -1,1 +1,5 @@
-# Setup a python installation and package it for pusblishing 
+# Setup a python package
+
+## Notes OSX
+
+
