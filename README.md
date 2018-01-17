@@ -23,5 +23,5 @@ yum install openssl-devel readline-devel
 
 ## Notes on Windows
 
-Because it is not trivial to build Python 2.7 download msi package and
+Because it is not trivial to build Python 2.7 download msi package and 
 repackage the binaries after adding the requirements.
