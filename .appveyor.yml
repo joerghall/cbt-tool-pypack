@@ -35,7 +35,7 @@ environment:
   apiuser:
     secure: X+mtOycNJT0C+2uAY5eD3w==
   apipwd:
-    secure: +RdRCDqcsC4j2T/g2Azio4XtJrxjN/vTyihtaf0mbNw=
+    secure: dsalCdJi7zbDRmaZcOhdGa1Tl9/0ooWwO7xkFnjzJ5k=
 
 install:
   ############################################################################
