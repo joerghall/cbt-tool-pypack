@@ -84,14 +84,17 @@ if(BUILD_WINDOWS)
     set(PYTHON_INSTALL_TARGET_DIR ${TARGET_INSTALL_DIR}/python2/${PYTHON_VERSION}.${VERSION_REVISION}.r${VERSION_SHORTHASH}/windows)
     set(PYTHON_SOURCE_FILE python-${PYTHON_VERSION}.amd64.msi)
     set(PYTHON_PACKAGE_NAME python2-${PYTHON_VERSION_PACKAGE}-windows.tgz)
+    set(PYTHON2 PYTHON_INSTALL_TARGET_DIR/python.exe)
 elseif(BUILD_LINUX)
     set(PYTHON_INSTALL_TARGET_DIR ${TARGET_INSTALL_DIR}/python2/${PYTHON_VERSION}.${VERSION_REVISION}.r${VERSION_SHORTHASH}/linux)
     set(PYTHON_PACKAGE_NAME python2-${PYTHON_VERSION_PACKAGE}-linux.tgz)
+    set(PYTHON2 PYTHON_INSTALL_TARGET_DIR/bin/python)
 elseif (BUILD_OSX)
     set(PYTHON_INSTALL_TARGET_DIR ${TARGET_INSTALL_DIR}/python2/${PYTHON_VERSION}.${VERSION_REVISION}.r${VERSION_SHORTHASH}/osx)
     set(PYTHON_PACKAGE_NAME python2-${PYTHON_VERSION_PACKAGE}-osx.tgz)
     set(openssl_LOCATION /usr/local/opt/openssl)
     set(readline_LOCATION /usr/local/Cellar/readline/7.0.3_1)
+    set(PYTHON2 PYTHON_INSTALL_TARGET_DIR/bin/python)
 else()
     message(FATAL_ERROR "Unspecified OS type")
 endif()
@@ -160,6 +163,6 @@ add_custom_target(package_python
 )
 
 add_custom_target(publish_python
-    COMMAND --file ${SOURCE_UPLOAD_DIR}/${PYTHON_PACKAGE_NAME} --url https://h1grid.com:443/artifactory/cbt/devtools/python2/${PYTHON_VERSION_PACKAGE}/${PYTHON_PACKAGE_NAME}.tgz
+    COMMAND ${PYTHON2} ${cbt_LOCATION}/buildpy/upload-artifactory.py --file ${SOURCE_UPLOAD_DIR}/${PYTHON_PACKAGE_NAME} --url https://h1grid.com:443/artifactory/cbt/devtools/python2/${PYTHON_VERSION_PACKAGE}/${PYTHON_PACKAGE_NAME}.tgz
     DEPENDS package_python
 )
