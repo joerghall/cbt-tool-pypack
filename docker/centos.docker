@@ -1,0 +1,22 @@
+FROM centos:7
+MAINTAINER Richard Cook <rcook@rcook.org>
+
+RUN yum -y update
+
+RUN yum -y install centos-release-scl wget
+
+RUN yum-config-manager --enable rhel-server-rhscl-7-rpms
+
+RUN yum -y install devtoolset-6
+
+RUN echo "ALL  ALL=(ALL)  NOPASSWD: ALL" >> /etc/sudoers
+
+RUN wget -q https://cmake.org/files/v3.10/cmake-3.10.1-Linux-x86_64.sh\
+    && mkdir /cmake\
+    && sh ./cmake-3.10.1-Linux-x86_64.sh --skip-license --prefix=/cmake\
+    && ln -sf /cmake/bin/cmake /usr/bin/cmake\
+    && ln -sf /cmake/bin/ctest /usr/bin/ctest\
+    && ln -sf /cmake/bin/cpack /usr/bin/cpack\
+    && rm ./cmake-3.10.1-Linux-x86_64.sh
+
+RUN yum -y install sudo git vim openssl-devel readline-devel rpm-build
