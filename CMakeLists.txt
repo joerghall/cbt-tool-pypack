@@ -163,6 +163,6 @@ add_custom_target(package_python
 )
 
 add_custom_target(publish_python
-    COMMAND ${PYTHON2} ${cbt_LOCATION}/../buildpy/upload-artifactory.py --file ${SOURCE_UPLOAD_DIR}/${PYTHON_PACKAGE_NAME} --url https://h1grid.com:443/artifactory/cbt/devtools/python2/${PYTHON_VERSION_PACKAGE}/${PYTHON_PACKAGE_NAME}
+    COMMAND ${PYTHON2} ${upload_py_COMMAND} --file ${SOURCE_UPLOAD_DIR}/${PYTHON_PACKAGE_NAME} --url https://h1grid.com:443/artifactory/cbt/devtools/python2/${PYTHON_VERSION_PACKAGE}/${PYTHON_PACKAGE_NAME}
     DEPENDS package_python
 )
