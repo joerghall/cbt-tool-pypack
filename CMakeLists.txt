@@ -139,12 +139,12 @@ else()
         COMMAND ${CMAKE_COMMAND} -DSOURCE=${PYTHON_SOURCE_TARGET_FILE} -DTARGET=${SOURCE_SRC_DIR} -P ${untar_COMMAND}
         DEPENDS download_python
     )
-# --enable-optimizations - remove to have the build complete faster and has less output
+
     add_custom_target(build_python
         COMMAND ${CMAKE_COMMAND} -E make_directory ${PYTHON_INSTALL_TARGET_DIR}
         COMMAND ${CMAKE_COMMAND} -E env CPPFLAGS='-I${openssl_LOCATION}/include -I${readline_LOCATION}/include'
                                         LDFLAGS='-L${openssl_LOCATION}/lib -L${readline_LOCATION}/lib'
-                                        ./configure --prefix=${PYTHON_INSTALL_TARGET_DIR}
+                                        ./configure --prefix=${PYTHON_INSTALL_TARGET_DIR} --enable-optimizations
         COMMAND make
         COMMAND make install prefix=${PYTHON_INSTALL_TARGET_DIR}
         COMMAND ${CMAKE_COMMAND} -DSOURCE="https://bootstrap.pypa.io/get-pip.py" -DTARGET="${PYTHON_INSTALL_TARGET_DIR}/get-pip.py" -P ${download_COMMAND}
