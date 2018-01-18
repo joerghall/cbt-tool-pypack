@@ -158,3 +158,8 @@ add_custom_target(package_python
     WORKING_DIRECTORY ${TARGET_INSTALL_DIR}
     DEPENDS build_python
 )
+
+add_custom_target(publish_python
+    COMMAND --file ${SOURCE_UPLOAD_DIR}/${PYTHON_PACKAGE_NAME} --url https://h1grid.com:443/artifactory/cbt/devtools/python2/${PYTHON_VERSION_PACKAGE}/${PYTHON_PACKAGE_NAME}.tgz
+    DEPENDS package_python
+)
