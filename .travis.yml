@@ -13,7 +13,7 @@ env:
 
 before_install:
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker build -t centos7_pypack -f ${TRAVIS_BUILD_DIR}/docker/centos.docker docker ; fi
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install openssl readline ; fi
 script:
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker run -v ${TRAVIS_BUILD_DIR}:/root/pypack -e apikey -e apiuser -e TRAVIS_BRANCH
   --rm -t centos7_buildpy /bin/bash -c "mkdir /root/pypack/build
