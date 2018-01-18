@@ -8,7 +8,7 @@ git:
   depth: 1000000
 env:
   - secure: zfa1KnD1CmoCSTHNnEsSHm5HF49/YT19rMMPOzYg9PJjhX5lDkxM7tKmAmjNCxsRtKBfJuAokB4NAJQx6RlHXYIY0pzumlvzYeMo59HYLvMa4ZXKlMEK0Mj/kJpRlHl/0ivOqnT8VFsgShZkshqHfZErxnydIl6VzTW9AkhAGLtOrpS7tK1c3OeaPjlx4yD0wMc8b2Yn+GIAzPBIZEQRUpA2XpmDCqXv+0FH57EBz0SYG3Zbwsr0wiQg5xhQ8oO9ZbPwJroc6ym2wNVqYja8HJBCoYwBBa8uAJk4/e/37E3xUYPsATmiRiRgzcnQXjPClCbBSHN4FxxSwMJFllZDNtBkCwmhNByTmLbWjbGQMh+OjGD/n4zuKzHHF8R6V5oc3RSGoiLjNjRzgmowFckzip9AqL2CI/hgYbZTj8q+dehML4uafOS0L9W6mzNhxl46RtLlgYAr/FnjFiLh8quHzOkTyoAm5nnWinZ86spom8xUvpOpFPxcJsBNKtprOIGx7MFjTNrjqXyNJIyo4lASsRiLCdbzdPIJzkxjPjCSd4z1bBodTYpVUFoxARQdR4kFf5J+rffcNOxoHe8pJBxcKxUldb8tH3fCxirD0MEupcN/HDIq6CbhNkkLrxMLoDPvuBFFut+j2T8JO4FuzFXR89U0USj2Btf/Xp+3ghgVQWg=
-  - apiuser: joerghall
+  - apiuser=joerghall
 before_install:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install openssl readline ; fi
 script:
