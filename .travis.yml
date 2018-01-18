@@ -17,10 +17,10 @@ before_install:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install openssl readline ; fi
 script:
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker run -v ${TRAVIS_BUILD_DIR}:/root/pypack -e apikey -e apiuser -e TRAVIS_BRANCH
-  --rm -t centos7_pypack /bin/bash -c "mkdir /root/pypack/build
+  --rm -t jhhj/cbt-pypack-centos7:1 /bin/bash -c "mkdir /root/pypack/build
     && cd /root/pypack/build
     && cmake -DCMAKE_C_COMPILER=/opt/rh/devtoolset-6/root/usr/bin/gcc -DCMAKE_CXX_COMPILER=/opt/rh/devtoolset-6/root/usr/bin/g++ -DCMAKE_BUILD_TYPE=Release ..
-    && cmake --build . --target publish_package" ; fi
+    && cmake --build . --target publish_python" ; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mkdir ${TRAVIS_BUILD_DIR}/build
     && cd ${TRAVIS_BUILD_DIR}/build && cmake ..
-    && cmake --build . --target publish_package ; fi
+    && cmake --build . --target publish_python ; fi
