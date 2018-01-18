@@ -121,12 +121,13 @@ if(BUILD_WINDOWS)
         COMMAND ${PYTHON_INSTALL_TARGET_DIR}/python ${PYTHON_INSTALL_TARGET_DIR}/get-pip.py
         COMMAND ${PYTHON_INSTALL_TARGET_DIR}/Scripts/pip install -v -r ${CMAKE_CURRENT_SOURCE_DIR}/requirements.txt
         COMMAND ${CMAKE_COMMAND} -E remove ${PYTHON_INSTALL_TARGET_DIR}/get-pip.py
-        WORKING_DIRECTORY ${SOURCE_SRC_DIR}
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     )
 else()
     add_custom_target(download_python
         COMMAND ${CMAKE_COMMAND} -E make_directory ${SOURCE_DOWNLOAD_DIR}
         COMMAND ${CMAKE_COMMAND} -DSOURCE=${PYTHON_SOURCE_SOURCE_URL} -DTARGET=${PYTHON_SOURCE_TARGET_FILE} -P ${download_COMMAND}
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     )
 
     add_custom_target(unpack_python
