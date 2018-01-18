@@ -128,6 +128,7 @@ if(BUILD_WINDOWS)
     )
 else()
     add_custom_target(download_python
+        COMMAND env
         COMMAND ${CMAKE_COMMAND} -E make_directory ${SOURCE_DOWNLOAD_DIR}
         COMMAND ${CMAKE_COMMAND} -DSOURCE=${PYTHON_SOURCE_SOURCE_URL} -DTARGET=${PYTHON_SOURCE_TARGET_FILE} -P ${download_COMMAND}
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}

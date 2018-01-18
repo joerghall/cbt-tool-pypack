@@ -4,23 +4,19 @@ os:
 - osx
 sudo: required
 group: travis_lts
-
 git:
   depth: 1000000
 env:
-  global:
-  - secure: "bObHFUXpVS6XevtQL8x3GJQ8paUKl4nLssfkHLnz2W4fxsniggkKVDcJGDFgKAbh9fUkHj3C25XX2cJUzJAGrCOjdr+LvPD/woZk/Bwf3KQtL3bcWrRCMDTwq2TQlrTvfQDJb531POgvIq8JHoE5POwqBmoM+Npsy1J5DU7Zzjw6hN1QCKLW7sTNHovX0zpdR1TB4inhrcCGsLfST32mzCHnLNA3fTr5J6EHjDuPGKnQnGjFjO0CpmtNrsGsvpaz3DAr3PDf94XwxZFdUzwDrpBx9T2oihoYqDBenmYwDu+7EMPoAAcqCrPvKi88ruFvv1NpOLLXOole2TJUoPkSrr1T7PRg3LXZWM9rOaetswaESgV8ic9r4r6QTOFiEhIDC8C4FkKdwYZsYBSNfkirRXkM/jUIqeANeJ/HJO7El5KaB8FjQ691osYJamSkuUVq7oJ0gJffq8YEiuDgfecxpWSEi8HfqLLGY30/b6Re+TqHcyK7fsf2RbfHwSDneu7fbOotBnzOfig18S3d3kUtp8K3LsE9DozG84INCyKoUG5PaJeFIQXM72Y/MIUm9AbNkiD5NeNQ1psm1phMsKM3DdlUeAkDl0+L/FtWzvhDuj6mUZWqnTrFz356gIHPtJHniRmX4NgTw+gDP0Ugy2IiEas2Cvq92/HnZpBEEQdfhC0="
-  - secure: "goqLz5915KWzldj8A+o3FALQg+tZeqZVMckZEx7R6LTVUaB1TPipai13QHk7i8yUNQzNH7SsZYo2LJtDlZuQFxOG9P7uVTu3uf7rflHDy6Pj2WJEG0e63N1SLqADHdfUzUfe1ikmipXdF3ZHfHeG5me2Op3JepN4uLzpyZhV9t4VdYiPTTuUFcETpiS6aM5YEaBO3/c7cyiWrVA121YEgoSEg0D0esLOoB4M/uMODMg6KcIX8O2Pm1UzDJN+WV1AUPpKVB5AwnPBJU3rReSAkEH/ymvxASfAa7UCt9qIWWGvQDzLaM/+wDIqAOagkJ8SoZ1fyfmOCJrm4Xaxnbzzj3bpStvmi9tsbIsgL0jnr6lFEqKa9WLQolo3z6qV9nOaMoeTqHkBoQ0WmqcjgkUkryhxSO8U2gyxuwMuJFn6GZv3VP+PMWb7x90fJf0JrQ9OYya9pQsFroTc25dKvOc8EOTnidel8lFAJGPx0rSyFRl7FhEqyjLuPvMfbSxlzokUhU9Q/sxpuE57rOS4uJvPpp+LOaPK6PTxVvyvE3WDvFrPpNTomQYpEzZMUD8EqT/ZNLBg7Q/rUQ/SkdxnGonNMrNReAHyC+k5zrNSq2tPjbiVNfFdkntQel+1HqKT8iCeLlbuZmgDtwgRiAUhvzb+i56YT4UA4+Dcn8NCI73HVkI="
-
+  - secure: zfa1KnD1CmoCSTHNnEsSHm5HF49/YT19rMMPOzYg9PJjhX5lDkxM7tKmAmjNCxsRtKBfJuAokB4NAJQx6RlHXYIY0pzumlvzYeMo59HYLvMa4ZXKlMEK0Mj/kJpRlHl/0ivOqnT8VFsgShZkshqHfZErxnydIl6VzTW9AkhAGLtOrpS7tK1c3OeaPjlx4yD0wMc8b2Yn+GIAzPBIZEQRUpA2XpmDCqXv+0FH57EBz0SYG3Zbwsr0wiQg5xhQ8oO9ZbPwJroc6ym2wNVqYja8HJBCoYwBBa8uAJk4/e/37E3xUYPsATmiRiRgzcnQXjPClCbBSHN4FxxSwMJFllZDNtBkCwmhNByTmLbWjbGQMh+OjGD/n4zuKzHHF8R6V5oc3RSGoiLjNjRzgmowFckzip9AqL2CI/hgYbZTj8q+dehML4uafOS0L9W6mzNhxl46RtLlgYAr/FnjFiLh8quHzOkTyoAm5nnWinZ86spom8xUvpOpFPxcJsBNKtprOIGx7MFjTNrjqXyNJIyo4lASsRiLCdbzdPIJzkxjPjCSd4z1bBodTYpVUFoxARQdR4kFf5J+rffcNOxoHe8pJBxcKxUldb8tH3fCxirD0MEupcN/HDIq6CbhNkkLrxMLoDPvuBFFut+j2T8JO4FuzFXR89U0USj2Btf/Xp+3ghgVQWg=
+  - apiuser: joerghall
 before_install:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install openssl readline ; fi
 script:
-- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker run -v ${TRAVIS_BUILD_DIR}:/root/pypack -e apikey -e apiuser -e TRAVIS_BRANCH
-  --rm -t jhhj/cbt-pypack-centos7:1 /bin/bash -c "mkdir /root/pypack/build
-    && cd /root/pypack/build
-    && export PATH=/opt/rh/devtoolset-6/root/usr/bin:$PATH
-    && cmake -DCMAKE_BUILD_TYPE=Release ..
-    && cmake --build . --target publish_python" ; fi
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mkdir ${TRAVIS_BUILD_DIR}/build
-    && cd ${TRAVIS_BUILD_DIR}/build && cmake ..
-    && cmake --build . --target publish_python ; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker run -v ${TRAVIS_BUILD_DIR}:/root/pypack
+  -e apikey -e apiuser -e TRAVIS_BRANCH --rm -t jhhj/cbt-pypack-centos7:1 /bin/bash
+  -c "mkdir /root/pypack/build && cd /root/pypack/build && export PATH=/opt/rh/devtoolset-6/root/usr/bin:$PATH
+  && cmake -DCMAKE_BUILD_TYPE=Release .. && cmake --build . --target publish_python"
+  ; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mkdir ${TRAVIS_BUILD_DIR}/build && cd
+  ${TRAVIS_BUILD_DIR}/build && cmake .. && cmake --build . --target publish_python
+  ; fi
