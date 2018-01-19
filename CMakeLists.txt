@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# https://github.com/joerghall/pypack
+# https://github.com/joerghall/cbt-tool-pybuild
 #
 cmake_minimum_required(VERSION 3.5)
 
@@ -38,7 +38,7 @@ if(APPLE)
     set(CMAKE_OSX_DEPLOYMENT_TARGET 10.10)
 endif()
 
-project(pybuild)
+project(cbt-tool-pybuild)
 
 enable_testing()
 
