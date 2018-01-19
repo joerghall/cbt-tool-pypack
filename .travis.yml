@@ -14,7 +14,7 @@ before_install:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install openssl readline ; fi
 script:
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker run -v ${TRAVIS_BUILD_DIR}:/root/cbt-tool-pypack
-  -e apipwd -e apiuser -e TRAVIS_BRANCH --rm -t jhhj/pypack-centos7:1 /bin/bash
+  -e apipwd -e apiuser -e TRAVIS_BRANCH --rm -t jhhj/cbt-pypack-centos7:1 /bin/bash
   -c "mkdir /root/cbt-tool-pypack/build && cd /root/cbt-tool-pypack/build && export PATH=/opt/rh/devtoolset-6/root/usr/bin:$PATH
   && cmake -DCMAKE_BUILD_TYPE=Release .. && cmake --build . --target publish_python"
   ; fi
