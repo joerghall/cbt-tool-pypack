@@ -73,5 +73,7 @@ before_build:
 build_script:
   - mkdir build
   - cd build
+  - echo "start setup ..."
   - cmake -G Ninja ..
+  - echo "start building ..."
   - cmake --build . --target publish_python

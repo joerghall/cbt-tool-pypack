@@ -112,7 +112,7 @@ set(PYTHON_SOURCE_TARGET_DIR ${CMAKE_BINARY_DIR}/src/${PYTHON_SOURCE_FILE})
 if(BUILD_WINDOWS)
     # https://www.python.org/ftp/python/2.7.14/python-2.7.14.amd64.msi
     # msiexec /i python-2.4.msi TARGETDIR=r:\python24 /qn /a
-    string(REPLACE "/" "\\" PYTHON_SOURCE_TARGET_FILE_WIN ${PYTHON_SOURCE_TARGET_FILE} )
+    string(REPLACE "/" "\\" PYTHON_SOURCE_TARGET_FILE_WIN ${PYTHON_SOURCE_TARGET_FILE})
     string(REPLACE "/" "\\" PYTHON_INSTALL_TARGET_DIR_WIN ${PYTHON_INSTALL_TARGET_DIR})
 
     add_custom_target(build_python
